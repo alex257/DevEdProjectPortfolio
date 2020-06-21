@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Pattaya&family=Poppins:wght@400;500&display=swap");
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  @media screen and (max-width: 932px) {
+    font-size: 45%;
+  }
+}
+
+body {
+  font-family: "Ruhl", sans-serif;
+  animation: opening 1s ease-in-out;
+}
+
+//Typography
+
+h1 {
+  
+}
+
+h2 {
+  
+}
+
+h3 {
+ 
+}
+
+h4,
+h5 {
+ 
+}
+
+li,
+button,
+label,
+input,
+p,
+a {
+  
+}
+
+
+
+
+
+////
+a {
+  color: $black;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+button {
+  padding: 2rem 6rem;
+  //background: $primary-color;
+  border: none;
+  color: $white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: all 1s ease-in-out 2s;
+
+  &:hover {
+    //background: $secondary-color;
+    font-size: 2.6rem;
+  }
+}
+
+
