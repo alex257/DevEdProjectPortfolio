@@ -3,10 +3,11 @@
 
 @import "abstracts/fonts";
 @import "abstracts/variables";
+@import "abstracts/mixins";
 @import "base/base";
 @import "base/utilities";
-/*@import "layouts/header";
-@import "layouts/hero";
+@import "layouts/header";
+@import "layouts/intro";/*
 @import "layouts/about";
 @import "layouts/gallery";
 @import "layouts/contact";

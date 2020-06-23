@@ -1,0 +1,137 @@
+.intro {
+  @include flex(space-between, center, row);
+  min-height: 90vh;
+  width: 90%;
+  margin: auto;
+  flex-wrap: wrap;
+
+  &__text {
+    flex: 1 1 40rem;
+
+    @include mQ($md) {
+      margin-top: 3rem;
+      text-align: center;
+    }
+    h2 {
+      font-size: 8rem;
+      padding-top: 2rem;
+      background: $gradient;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+
+      @include mQ($lg) {
+        padding-top: 0;
+      }
+    }
+    h3 {
+      font-size: 6rem;
+      font-weight: 600;
+      padding: 2rem 0;
+      @include mQ($lg) {
+        padding: 0;
+      }
+    }
+    p {
+      padding-top: 2rem;
+      color: $text-color;
+    }
+  }
+
+  &__social {
+    display: flex;
+    margin-top: 4rem;
+    @include mQ($md) {
+      @include flex(center, center, row);
+
+    }
+   
+    a {
+      margin-right: 5rem;
+      @include mQ($md) {
+        margin: 2rem;
+      }
+    }
+  }
+
+  &__images {
+    display: flex;
+    //position: relative;
+    flex: 1 1 40rem;
+    @include mQ($md) {
+      text-align: center;
+      
+    }
+
+    svg{
+      @include mQ($lg) {
+       width: 80%;
+       margin-left: 3rem;
+      }
+      @include mQ($md) {
+        width: 60%;
+        flex: 1 1 100%;
+      
+      }
+    }
+  }
+
+  .splash {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    height: 100%;
+    z-index: -11;
+    @include mQ($lg) {
+      display: none;
+    }
+    svg{
+      width: 80%;
+    }
+  }
+}
+
+#plant-left{
+  animation: plant 1.5s ease infinite;
+}
+#plant-right{
+  animation: plant 1.5s ease infinite alternate .5s;
+}
+
+#me{
+  animation: me 1s ease infinite alternate;
+  transform-origin: bottom;
+}
+
+#clock-arrow{
+  animation: clock 1.5s infinite linear;
+  transform-box: fill-box;
+  transform-origin: bottom;
+  
+}
+@keyframes plant{
+  from {
+    transform: translateY(0%);
+  }
+  to{
+   transform: translateY(-30%);
+  }
+}
+
+@keyframes me{
+  from {
+    transform: rotateZ(-5deg);
+  }
+  to{
+    transform: rotateZ(5deg);
+  }
+}
+
+@keyframes clock{
+  from {
+    transform: rotateZ(0deg);
+  }
+  to{
+    transform: rotateZ(360deg);
+  }
+}

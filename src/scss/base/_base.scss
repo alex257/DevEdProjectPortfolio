@@ -9,33 +9,40 @@
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
-  @media screen and (max-width: 932px) {
+  @include mQ($lg) {
+    font-size: 55%;
+  }
+  @include mQ($md) {
     font-size: 45%;
   }
 }
 
 body {
-  font-family: "Ruhl", sans-serif;
+  font-family: "Montserrat Regular";
   animation: opening 1s ease-in-out;
 }
 
 //Typography
 
 h1 {
-  
+  font-size: $header1;
+  font-family: "Montserrat Medium";
 }
 
 h2 {
-  
+  font-size: $header2;
+  font-family: "Montserrat Medium";
 }
 
 h3 {
- 
+  font-size: $header3;
+  font-family: "Montserrat Medium";
+
 }
 
 h4,
 h5 {
- 
+  font-size: $header4;
 }
 
 li,
@@ -44,7 +51,7 @@ label,
 input,
 p,
 a {
-  
+  font-size: $text;
 }
 
 
@@ -53,7 +60,7 @@ a {
 
 ////
 a {
-  color: $black;
+  color: $text-color;
   text-decoration: none;
 }
 

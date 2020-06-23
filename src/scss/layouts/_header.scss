@@ -1,0 +1,52 @@
+.main-header {
+  width: 95%;
+  margin: 0 0 0 auto;
+  @include mQ($md) {
+    width: 100%;
+  }
+
+nav {
+  @include flex(space-between, center, row);
+  min-height: 10vh;
+  width: 60%;
+  flex-wrap: wrap;
+  @include mQ($lg) {
+    width: 100%;
+  }
+  @include mQ($md) {
+   margin: 2rem;
+  }
+
+  .logo {
+    @include flex(flex-start, center, row);
+    flex: 1 1 10rem;
+    @include mQ($md) {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+       flex: 1 1 60rem;
+       margin-top: 2rem;
+      }
+
+    h1 {
+      margin: 2rem;
+    }
+  }
+  ul {
+    @include flex(space-around, center, row);
+    flex: 1 1 40rem;
+    @include mQ($md) {
+        flex: 1 1 60rem;
+        margin: 2rem 0rem;
+      }
+  }
+
+  .active {
+    background: $text-color;
+    color: $white;
+    padding: 1rem 3rem;
+    border-radius: 2rem;
+  }
+}
+}

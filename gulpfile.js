@@ -1,21 +1,16 @@
 const gulp = require("gulp"),
-
-browserSync = require("browser-sync").create(),
-sass = require("gulp-sass"),
-cleanCSS = require("gulp-clean-css"),
-concat = require('gulp-concat'),
-
-//autoprefixer = require("gulp-autoprefixer"),
-sourcemaps = require("gulp-sourcemaps"),
-
-terser = require("gulp-terser"),
-minify = require("gulp-minify"),
-gulpCopy = require('gulp-copy'),
-
-postcss = require('gulp-postcss'),
-autoprefixer = require('autoprefixer'),
-cssnano = require('cssnano');
-
+  browserSync = require("browser-sync").create(),
+  sass = require("gulp-sass"),
+  cleanCSS = require("gulp-clean-css"),
+  concat = require("gulp-concat"),
+  //autoprefixer = require("gulp-autoprefixer"),
+  sourcemaps = require("gulp-sourcemaps"),
+  terser = require("gulp-terser"),
+  minify = require("gulp-minify"),
+  gulpCopy = require("gulp-copy"),
+  postcss = require("gulp-postcss"),
+  autoprefixer = require("autoprefixer"),
+  cssnano = require("cssnano");
 
 function style() {
   return gulp
@@ -23,7 +18,7 @@ function style() {
     .pipe(sourcemaps.init())
 
     .pipe(sass().on("error", sass.logError))
-    .pipe(postcss([ autoprefixer(), cssnano() ])) // PostCSS plugins
+    .pipe(postcss([autoprefixer(), cssnano()])) // PostCSS plugins
 
     .pipe(cleanCSS())
     .pipe(sourcemaps.write())
@@ -38,12 +33,11 @@ function js() {
     .pipe(sourcemaps.init())
     .pipe(terser())
     .pipe(sourcemaps.write())
-    .pipe(concat('main.js'))
+    .pipe(concat("main.js"))
     .pipe(minify())
-    
+
     .pipe(gulp.dest("dist/js"));
 }
-
 
 function copyHtml() {
   return gulp
@@ -53,14 +47,14 @@ function copyHtml() {
 }
 
 function copyImages() {
-  return gulp.src("src/img/*.{gif,jpg,png,svg}")
-  .pipe(gulp.dest("dist/img"));
+  return gulp.src("src/img/*.{gif,jpg,png,svg}").pipe(gulp.dest("dist/img"));
 }
 
 function copyIcons() {
-  return gulp.src("src/icons/*.{gif,jpg,png,svg}").pipe(gulp.dest("dist/icons"));
+  return gulp
+    .src("src/icons/*.{gif,jpg,png,svg}")
+    .pipe(gulp.dest("dist/icons"));
 }
-
 
 function copyFonts() {
   return gulp
@@ -82,7 +76,7 @@ function copyFonts() {
 
 function watch() {
   browserSync.init({
-    server: "./dist"
+    server: "./dist",
   });
 
   gulp.watch("src/scss/**/*.scss", style);
@@ -103,7 +97,6 @@ exports.copyImages = copyImages;
 exports.copyIcons = copyIcons;
 exports.copyFonts = copyFonts;
 
-
 // exports.default = build;
 
 const build = gulp.parallel(
@@ -114,7 +107,6 @@ const build = gulp.parallel(
   copyImages,
   copyIcons,
   copyFonts
-  
 );
 
 gulp.task(build);
