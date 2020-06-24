@@ -43,9 +43,8 @@
     margin-top: 4rem;
     @include mQ($md) {
       @include flex(center, center, row);
-
     }
-   
+
     a {
       margin-right: 5rem;
       @include mQ($md) {
@@ -60,18 +59,16 @@
     flex: 1 1 40rem;
     @include mQ($md) {
       text-align: center;
-      
     }
 
-    svg{
+    svg {
       @include mQ($lg) {
-       width: 80%;
-       margin-left: 3rem;
+        width: 80%;
+        margin-left: 3rem;
       }
       @include mQ($md) {
         width: 60%;
         flex: 1 1 100%;
-      
       }
     }
   }
@@ -85,53 +82,52 @@
     @include mQ($lg) {
       display: none;
     }
-    svg{
+    svg {
       width: 80%;
     }
   }
 }
 
-#plant-left{
+#plant-left {
   animation: plant 1.5s ease infinite;
 }
-#plant-right{
-  animation: plant 1.5s ease infinite alternate .5s;
+#plant-right {
+  animation: plant 1.5s ease infinite alternate 0.5s;
 }
 
-#me{
+#me {
   animation: me 1s ease infinite alternate;
   transform-origin: bottom;
 }
 
-#clock-arrow{
+#clock-arrow {
   animation: clock 1.5s infinite linear;
   transform-box: fill-box;
   transform-origin: bottom;
-  
 }
-@keyframes plant{
+@keyframes plant {
   from {
     transform: translateY(0%);
   }
-  to{
-   transform: translateY(-30%);
+  to {
+    transform: translateY(-30%);
   }
 }
 
-@keyframes me{
+@keyframes me {
   from {
     transform: rotateZ(-5deg);
   }
-  to{
+  to {
     transform: rotateZ(5deg);
   }
 }
 
-@keyframes clock{
+@keyframes clock {
   from {
     transform: rotateZ(0deg);
   }
-  to{
+  to {
     transform: rotateZ(360deg);
   }
 }

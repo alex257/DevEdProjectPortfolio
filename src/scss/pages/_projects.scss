@@ -1,0 +1,29 @@
+.projects {
+  width: 90%;
+  margin: auto;
+  min-height: 90vh;
+  @include flex(space-beetwen, center, row);
+  text-align: center;
+  flex-wrap: wrap;
+
+  h2 {
+    margin-left: -6rem;
+    margin: 5rem;
+  }
+
+  .travelly,
+  .elena {
+    flex: 1 1 40rem;
+    @include flex(center, center, column);
+
+    @include mQ($md) {
+      flex: 1 1 50rem;
+    }
+    img {
+      @include mQ($md) {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

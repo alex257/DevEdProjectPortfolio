@@ -46,6 +46,22 @@ function copyHtml() {
     .pipe(browserSync.stream());
 }
 
+function copyHtmlProjects() {
+  return gulp
+    .src("src/projects/*.html")
+    .pipe(gulp.dest("dist/projects"))
+    .pipe(browserSync.stream());
+}
+
+function copyHtmlContact() {
+  return gulp
+    .src("src/contact/*.html")
+    .pipe(gulp.dest("dist/contact"))
+    .pipe(browserSync.stream());
+}
+
+
+
 function copyImages() {
   return gulp.src("src/img/*.{gif,jpg,png,svg}").pipe(gulp.dest("dist/img"));
 }
@@ -62,17 +78,6 @@ function copyFonts() {
     .pipe(gulp.dest("dist/fonts"));
 }
 
-/*function copyCss() {
-  return gulp
-    .src("src/css/*.css")
-    .pipe(gulp.dest("dist/css"))
-    .pipe(browserSync.stream());
-}*/
-
-/*function copyJs() {
-  return gulp.src("src/js/main-min.js")
-  .pipe(gulp.dest("dist/js"));
-}*/
 
 function watch() {
   browserSync.init({
@@ -81,18 +86,24 @@ function watch() {
 
   gulp.watch("src/scss/**/*.scss", style);
   gulp.watch("src/*.html").on("change", browserSync.reload);
+  gulp.watch("src/projects/*.html").on("change", browserSync.reload);
+  gulp.watch("src/contact/*.html").on("change", browserSync.reload);
   gulp.watch("src/*.html", copyHtml);
+  gulp.watch("src/*.html", copyHtmlProjects);
+  gulp.watch("src/*.html", copyHtmlContact);
   gulp.watch("src/img/*.{gif,jpg,png,svg}", copyImages);
   gulp.watch("src/icons/*.{gif,jpg,png,svg}", copyIcons);
   gulp.watch("src/fonts/*.{txt,woff,woff2,ttf}", copyFonts);
-  gulp.watch("src/js/**/*.js", js);
-  gulp.watch("src/js/*.js").on("change", browserSync.reload);
+ // gulp.watch("src/js/**/*.js", js);
+  //gulp.watch("src/js/*.js").on("change", browserSync.reload);
 }
 
 exports.style = style;
-exports.js = js;
+//exports.js = js;
 exports.watch = watch;
 exports.copyHtml = copyHtml;
+exports.copyHtmlProjects = copyHtmlProjects;
+exports.copyHtmlContact = copyHtmlContact;
 exports.copyImages = copyImages;
 exports.copyIcons = copyIcons;
 exports.copyFonts = copyFonts;
@@ -101,9 +112,10 @@ exports.copyFonts = copyFonts;
 
 const build = gulp.parallel(
   style,
-  js,
   watch,
   copyHtml,
+  copyHtmlProjects,
+  copyHtmlContact,
   copyImages,
   copyIcons,
   copyFonts
